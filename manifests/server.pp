@@ -166,7 +166,7 @@ class postfix::server (
   $max_use_postfix_amavis   = '25',
   ## ASF Custom Logrotate Variables
   $postfix_logrotate_path          = '/var/log/mail.log',
-  $postfix_logrotate_rotate        = '7',
+  $postfix_logrotate_rotate        = 7,
   $postfix_logrotate_rotate_every  = 'day',
   $postfix_logrotate_compress      = true,
   $postfix_logrotate_delaycompress = true,
