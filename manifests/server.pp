@@ -160,6 +160,7 @@ class postfix::server (
   $newaliases_path        = $::postfix::params::newaliases_path,
   $sendmail_path          = $::postfix::params::sendmail_path,
   ## ASF Custom
+  $backup_mx                = false,
   $asf_mx_enabled           = false,
   $asf_mx_content_filter    = '',
   $max_postfix_amavis_procs = '10',
