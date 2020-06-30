@@ -75,6 +75,7 @@ class postfix::server (
   $smtp_tls_CApath = undef,
   $smtp_tls_key_file = undef,
   $smtp_tls_cert_file = undef,
+  $smtp_tls_loglevel = 1,
   $smtp_tls_security_level = undef,
   $smtp_tls_secure_cert_match = undef,
   $smtp_tls_note_starttls_offer = false,
