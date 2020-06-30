@@ -1,6 +1,12 @@
 # puppet-postfix
 
+
+
 ## Overview
+
+This is an ASF/Infra forked version of thias/puppet-postfix to include 
+options necessary to ASF postfix configurations.
+
 
 This module is meant for Red Hat Enterprise Linux, its clones and FreeBSD. It
 still requires some major clean up, but is currently fully functional.
