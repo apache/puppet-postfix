@@ -741,7 +741,13 @@ readme_directory = <%= @readme_directory %>
 <% if @ssl -%>
 # TLS stuff
 smtpd_use_tls = yes
-smtpd_tls_loglevel = 1
+smtpd_tls_loglevel = <%= @smtpd_tls_loglevel %>
+<% if @smtpd_tls_security_level -%>
+smtpd_tls_security_level = <%= @smtpd_tls_security_level %>
+<% end -%>
+<% if @smtpd_tls_received_header -%>
+smtpd_tls_received_header = <%= @smtpd_tls_received_header %>
+<% end -%>
 <% if @smtpd_tls_key_file -%>
 smtpd_tls_key_file = <%= @smtpd_tls_key_file %>
 <% else -%>
