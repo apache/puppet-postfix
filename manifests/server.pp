@@ -253,6 +253,7 @@ class postfix::server (
   postfix::file { 'header_checks':
     content    => template('postfix/header_checks.erb'),
     group      => $root_group,
+    notify     => Service['postfix'],
     postfixdir => $config_directory,
   }
 
@@ -260,6 +261,7 @@ class postfix::server (
   postfix::file { 'body_checks':
     content    => template('postfix/body_checks.erb'),
     group      => $root_group,
+    notify     => Service['postfix'],
     postfixdir => $config_directory,
   }
 
@@ -268,4 +270,3 @@ class postfix::server (
   }
 
 }
-
