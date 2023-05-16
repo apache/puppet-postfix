@@ -51,7 +51,7 @@ define postfix::dbfile (
       cwd         => $postfixdir,
       subscribe   => File["${postfixdir}/${title}"],
       refreshonly => true,
-      # No need to notify the service, since it detects changed files
+      notify      => Service['postfix'],
     }
 
   }

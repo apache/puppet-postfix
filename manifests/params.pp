@@ -41,7 +41,7 @@ class postfix::params {
       $manpage_directory = '/usr/share/man'
       $readme_directory = '/usr/share/doc/postfix'
       $sample_directory = '/usr/share/doc/postfix/examples'
-      $service_restart = '/usr/sbin/service postfix check && /usr/sbin/service postfix restart'
+      $service_restart = '/usr/sbin/service postfix reload'
       $dovecot_directory = '/usr/lib/dovecot'
       $postfix_package = 'postfix'
       $postfix_mysql_package = 'postfix-mysql'
