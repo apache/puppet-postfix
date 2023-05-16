@@ -59,6 +59,9 @@ class postfix::server (
   $smtpd_end_of_data_restrictions = [],
   $smtpd_delay_reject = false,
   $ssl = false,
+  $smtpd_tls_loglevel = 1,
+  $smtpd_tls_security_level = undef,
+  $smtpd_tls_received_header = undef,
   $smtpd_tls_key_file = undef,
   $smtpd_tls_cert_file = undef,
   $smtpd_tls_CAfile = undef,
@@ -72,6 +75,7 @@ class postfix::server (
   $smtp_tls_CApath = undef,
   $smtp_tls_key_file = undef,
   $smtp_tls_cert_file = undef,
+  $smtp_tls_loglevel = 1,
   $smtp_tls_security_level = undef,
   $smtp_tls_secure_cert_match = undef,
   $smtp_tls_note_starttls_offer = false,
@@ -165,15 +169,6 @@ class postfix::server (
   $asf_mx_content_filter    = '',
   $max_postfix_amavis_procs = '10',
   $max_use_postfix_amavis   = '25',
-  ## ASF Custom Logrotate Variables
-  $postfix_logrotate_path          = '/var/log/mail.log',
-  $postfix_logrotate_rotate        = 7,
-  $postfix_logrotate_rotate_every  = 'day',
-  $postfix_logrotate_compress      = true,
-  $postfix_logrotate_delaycompress = true,
-  $postfix_logrotate_missingok     = true,
-  $postfix_logrotate_sharedscripts = false,
-  $postfix_logrotate_postrotate    = "service rsyslog rotate"
   
 ) inherits ::postfix::params {
 
@@ -258,6 +253,7 @@ class postfix::server (
   postfix::file { 'header_checks':
     content    => template('postfix/header_checks.erb'),
     group      => $root_group,
+    notify     => Service['postfix'],
     postfixdir => $config_directory,
   }
 
@@ -265,19 +261,12 @@ class postfix::server (
   postfix::file { 'body_checks':
     content    => template('postfix/body_checks.erb'),
     group      => $root_group,
+    notify     => Service['postfix'],
     postfixdir => $config_directory,
   }
 
   logrotate::rule { 'postfix':
-    path          => $postfix_logrotate_path,
-    rotate        => $postfix_logrotate_rotate,
-    rotate_every  => $postfix_logrotate_rotate_every,
-    compress      => $postfix_logrotate_compress,
-    delaycompress => $postfix_logrotate_delaycompress,
-    missingok     => $postfix_logrotate_missingok,
-    sharedscripts => $postfix_logrotate_sharedscripts,
-    postrotate    => $postfix_logrotate_postrotate,
+    ensure => absent,
   }
 
 }
-
