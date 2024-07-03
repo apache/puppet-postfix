@@ -1,7 +1,9 @@
 # Class: postfix::params
 #
 class postfix::params {
-  case $::osfamily {
+  $osfamily = $facts['osfamily']
+
+  case $osfamily {
     'RedHat': {
       $postfix_version = $::operatingsystemmajrelease ? {
         '6'     => '2.6.6',
