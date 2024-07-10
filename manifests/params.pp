@@ -1,7 +1,7 @@
 # Class: postfix::params
 #
 class postfix::params {
-  $osfamily = $facts['osfamily']
+  $osfamily = $facts['os']['family']
 
   case $osfamily {
     'RedHat': {
