@@ -173,14 +173,14 @@ class postfix::server (
 ) inherits ::postfix::params {
 
   # Default has el5 files, for el6 a few defaults have changed
-  $operatingsystemrelease = $facts['os']['release']['major']
-  $operatingsystem = $facts['os']['release']['family']
+  # $operatingsystemrelease = $facts['os']['release']['major']
+  # $operatingsystem = $facts['os']['release']['family']
 
-  if ( $operatingsystem =~ /RedHat|CentOS/ and versioncmp($operatingsystemrelease, '6') < 0 ) {
-    $filesuffix = '-el5'
-  } else {
-    $filesuffix = ''
-  }
+  # if ( $operatingsystem =~ /RedHat|CentOS/ and versioncmp($operatingsystemrelease, '6') < 0 ) {
+  # $filesuffix = '-el5'
+  # } else {
+  # $filesuffix = ''
+  # }
 
   # Main package and service it provides
   if $mysql {
