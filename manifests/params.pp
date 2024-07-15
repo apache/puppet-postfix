@@ -86,7 +86,7 @@ class postfix::params {
       $postmap = '/usr/local/sbin/postmap'
     }
     default: {
-      fail("Unsupported OS family ${::osfamily}")
+      fail("Unsupported OS family '${osfamily}'")
     }
   }
 }
