@@ -13,7 +13,7 @@ class postfix::server (
   # See the main.cf comments for help on these options
   $myhostname = $facts['networking']['fqdn'],
   $mydomain = false,
-  $myorigin = $myhostname,
+  $myorigin = "$myhostname",
   $inet_interfaces = 'localhost',
   $inet_protocols = 'all',
   $proxy_interfaces = false,
