@@ -17,7 +17,7 @@ class postfix::params {
       $manpage_directory = '/usr/share/man'
       $readme_directory = "/usr/share/doc/postfix-${postfix_version}/README_FILES"
       $sample_directory = "/usr/share/doc/postfix-${postfix_version}/samples"
-      $service_restart = '/sbin/service postfix reload'
+      $service_restart = '/sbin/service postfix restart'
       $dovecot_directory = '/usr/libexec/dovecot'
       $postfix_package = 'postfix'
       $postfix_mysql_package = 'postfix-mysql'
@@ -43,7 +43,7 @@ class postfix::params {
       $manpage_directory = '/usr/share/man'
       $readme_directory = '/usr/share/doc/postfix'
       $sample_directory = '/usr/share/doc/postfix/examples'
-      $service_restart = '/usr/sbin/service postfix reload'
+      $service_restart = '/usr/sbin/service postfix restart'
       $dovecot_directory = '/usr/lib/dovecot'
       $postfix_package = 'postfix'
       $postfix_mysql_package = 'postfix-mysql'
@@ -68,7 +68,7 @@ class postfix::params {
       $manpage_directory = '/usr/local/man'
       $readme_directory = '/usr/local/share/doc/postfix'
       $sample_directory = '/usr/local/etc/postfix'
-      $service_restart = '/usr/sbin/service postfix reload'
+      $service_restart = '/usr/sbin/service postfix restart'
       $dovecot_directory = '/usr/local/libexec/dovecot'
       $postfix_package = 'mail/postfix'
       $postfix_mysql_package = 'mail/postfix'
